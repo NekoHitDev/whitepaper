@@ -29,7 +29,8 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: zh_cn
-          path: main zh_cn.pdf      
+          path: src/main zh_cn.pdf     
+          if-no-files-found: error          
   build_EN_US:
     runs-on: ubuntu-latest
 
@@ -45,4 +46,6 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: en_us
-          path: main en_us.pdf
+          path: src/main en_us.pdf
+          if-no-files-found: error 
+          
