@@ -14,38 +14,25 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_ZH_CN:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      - name: Build zh_cn pdf
+      - name: build pdf
         uses: xu-cheng/latex-action@v2
         with:
           working_directory: src
           latexmk_use_xelatex: true
           root_file: |
             main zh_cn.tex
-      - uses: actions/upload-artifact@v2
-        with:
-          name: zh_cn
-          path: src/main zh_cn.pdf     
-          if-no-files-found: error          
-  build_EN_US:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Build en_us pdf
-        uses: xu-cheng/latex-action@v2
-        with:
-          working_directory: src
-          latexmk_use_xelatex: true
-          root_file: |
             main en_us.tex
       - uses: actions/upload-artifact@v2
         with:
-          name: en_us
-          path: src/main en_us.pdf
-          if-no-files-found: error 
+          name: zh_cn
+          path: |
+            src/main zh_cn.pdf  
+            src/main en_us.pdf            
+          if-no-files-found: error          
+
           
