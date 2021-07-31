@@ -4,7 +4,7 @@
 %! compiler = XeLaTex
 
 % Preamble
-\documentclass[11pt,UTF8,a4paper]{article}
+\documentclass[12pt,a4paper]{article}
 \usepackage[T1]{fontenc}
 
 % Packages
@@ -13,32 +13,15 @@
 \usepackage{graphicx}
 \usepackage[slantfont, boldfont]{xeCJK}
 
-% TOC stop at subsection
-\setcounter{tocdepth}{2}
-
-% 设置英文字体
+% set CJK font
 \setCJKmainfont{SimSun}
+
+% include header file
+\include{header}
 
 % Document
 \begin{document}
-    \begin{titlepage}
-        \centering
-        \vfill
-        \includegraphics[width=0.8\textwidth]{assets/img196}
-        \vfill
-        {\Huge
-        \textsf{NekoHit Project}\\
-        White paper\\
-        \vskip2cm
-        \vfill
-        \Large
-        ver 0.0.1\\
-        Translate from Chinese version\\
-        by IBM Watson Translator
-        }
-        \vfill
-        \vfill
-    \end{titlepage}
+    \gentitlepage{White paper}
     \pagenumbering{Roman}
     \tableofcontents
     \vspace*{\fill}

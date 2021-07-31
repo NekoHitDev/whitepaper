@@ -12,27 +12,12 @@
 \usepackage{url}
 \usepackage{graphicx}
 
-% TOC stop at subsection
-\setcounter{tocdepth}{2}
+% include header file
+\include{header}
 
 % Document
 \begin{document}
-    \begin{titlepage}
-        \centering
-        \vfill
-        \includegraphics[width=0.8\textwidth]{assets/img196}
-        \vfill
-        {\Huge
-        \textsf{NekoHit Project}\\
-        白皮书\\
-        \vskip2cm
-        \vfill
-        \Large
-        ver 0.0.1
-        }
-        \vfill
-        \vfill
-    \end{titlepage}
+    \gentitlepage{白皮书}
     \pagenumbering{Roman}
     \tableofcontents
     \vspace*{\fill}

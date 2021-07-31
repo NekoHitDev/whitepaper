@@ -1,0 +1,3 @@
+Prerelease V0.0.1-RC1.
+
+In this version we have finished the white paper in both zh_CN and en_US.
