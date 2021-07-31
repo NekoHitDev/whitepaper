@@ -1,11 +1,7 @@
-name: Compiple Latex
+name: Release
 
 on:
-  push:
-    branches: [ master, develop ]
-  pull_request:
-    branches: [ master, develop ]
-  workflow_dispatch:
+  create
 
 jobs:
   build:
@@ -27,4 +23,12 @@ jobs:
           path: |
             src/main zh_cn.pdf  
             src/main en_us.pdf            
-          if-no-files-found: error
+          if-no-files-found: error          
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            src/main zh_cn.pdf  
+            src/main en_us.pdf
+          
