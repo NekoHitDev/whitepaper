@@ -33,357 +33,477 @@
     \pagenumbering{arabic}
 
 
-    \section{Goal}\label{sec:goal}
+    \section{Vision of the future}\label{sec:goal}
 
-    The goal of the NekoHit Project is to build a decentralized application
-    that allows audiences to support creators economically, while motivating
-    creators to respond to the sponsors.
+    The vision (goal) of the NekoHit Project is to build a decentralized application
+    that gives creators the freedom to spend their time and energy, and allows audiences
+    to support creators financially, while incentivizing creators to respond to sponsors.
 
-    We envisioned: With the addition of more and more creators and sponsors,
-    the NekoHit community will gradually grow and improve.
-    We, as developers of the app, will work with the community and respond
-    to the needs and feedback from the community users, to create an
+    We envisioned that as more and more creators and sponsors join,
+    the NekoHit community will grow and improve. And we, as the developers
+    of the app, will work with the community and respond to the needs and
+    feedback from the community users, and strive to create an
     energetic platform for creators.
 
 
     \section{Introduction}\label{sec:intro}
 
-    The NekoHit Project built on creator work completion agreement
-    ("WCA" for short), briefly says that it is the blockchain version
-    of Patreon.
-    The project aims to incorporate "insurance" into traditional sponsor
-    patterns.
-    Thus, to promote the willingness of audiences to provide economic
-    support for content creators, and motivate creators to comply with their promises
-    and get the project finished on time.
+    The NekoHit Project built on the work completion agreement
+    ("WCA" for short), briefly speaking, it is the blockchain version
+    of Patreon. The project aims to incorporate \textit{insurance} into
+    traditional sponsor model, to promote the willingness of audiences to
+    financially support content creators, and motivate creators to comply
+    with their promises and get the project finished on time.
 
     The subscription model of the NekoHit Project is different from Patreon.
-    We allow sponsors to be able to sponsor a project more specifically,
-    instead of paying a monthly subscription fee.
-    In order to gain the trust of readers with the audience,
-    content creators need to pledge (stake) some tokens first.
+    Instead of paying a monthly subscription fee, we allow audience to sponsor
+    a project more specifically. In order to gain the trust of audience, content
+    creators need to pledge (stake) some tokens first.
     These tokens need to be transferred to our WCA smart contracts
     before the sponsors can transfer the tokens for sponsorship to
-    the creators' projects.
-    The sponsored tokens are also held by our WCA contract.
+    the creator's projects. The sponsored tokens are also held by our WCA contract.
     When declaring a project, the creator needs to provide information such as
-    the rate of the pledging, the detailed milestones of the project and
+    the rate of the staking (pledging), the detailed milestones of the project and
     the expected completion time.
-    If the creator fails to complete certain milestones before the expected time,
-    WCA contract will automatically calculate the amount corresponding to these milestones
-    and deduct from the creator's pledge.
-    Upon completion of the project, the deducted tokens will be issued to
-    each of the sponsors based on their sponsored amount.
-    Also, the sponsored tokens will deduct the corresponding proportion,
-    as a refund and returned to the Sponsor's wallet.
-    So the creator not only won't receive the part of sponsored tokens,
-    but also lost some of his own pledge.
+    If the creator does not complete certain milestones by the expected time,
+    WCA contract will automatically calculate the percentage of those milestones
+    to the project and deduct it from the pre-pledged tokens.
+    After the project is completed, the deducted tokens will be released to each
+    sponsor in proportion to the reference sponsorship amount. And the tokens
+    sponsored by the sponsor will also be deducted by the corresponding percentage
+    and returned to the sponsor's wallet as a refund. So not only does the author
+    not receive the sponsorship tokens for his defaulted milestone, but he also loses
+    some of his own pledged tokens.
 
-    We use this mechanism as a safety net to protect the interests of sponsors,
-    and use this as an incentive for creators to complete projects as expected.
-    Such a mechanism will also urge the creators to think about the process
-    of the project and arrange a suitable timeline when they create the project.
-    Finally, we want to be able to increase the trust of supporters towards
-    content creators, and reduce their concerns when carrying out
-    economic sponsorships.
+    We use this mechanism as a safety net to protect the rights of our sponsors
+    and as an incentive for creators to complete their projects according to the
+    expected schedule, so that they do not take too long to complete their projects.
+    Such a mechanism will also urge the creators to think through the process of
+    creating the project and arrange the timeline appropriately.
+    Last but not least, we hope that this will increase the trust of audience in the
+    content creators and reduce their concerns about financial sponsorship.
 
 
     \section{Industry Status}\label{sec:now}
 
-    The "creator economy" is getting more and more attention at the moment,
-    with audiences not only willing to fund creators, but creators also
-    need various channels to get revenue to maintain their creations.
-    The market of the creator's economy is still in a more primitive state,
-    and this is undoubtedly an opportunity for our development.
+    There is a growing interest in the creator economy, where audiences are
+    not only willing to fund creators, but creators also need various sources
+    of income to sustain their work. The market related to the creator economy
+    is still relatively raw, and this is certainly an opportunity for us to grow.
 
+    \subsection{Subscription-based traditional model}\label{subsec:tradition_patreon}
 
-    \subsection{Traditional subscription}\label{subsec:tradition_patreon}
-
-    基于订阅的传统模式，最典型的就是Patreon和爱发电。他们基于按月订阅的模式，创作者可以
-    自定义不同金额的计划，通常较低金额的计划享有的回报较少。以著名画师WLOP为例，他的Patreon
-    分为五种计划\cite{wlop_patreon}：
+    The most typical of the traditional subscription-based model is Patreon.
+    It is based on a monthly subscription model, where creators can customize
+    their plans with different price, and usually the lower price means less returns.
+    Take the famous illustrator WLOP for example, his Patreon is divided into five
+    types of plans\cite{wlop_patreon}:
     \begin{itemize}
-        \item Knight：每月2美元，可以获得JPG格式鬼刀漫画（3000像素宽），及当月创作的壁纸（4K分辨率）
-        \item Black Knight：每月4美元，可以获得全尺寸的鬼刀漫画，及当月创作的壁纸（8K分辨率）
-        \item Templar：每月8美元，除了Black Knight的内容外，还可以获得画师在Photoshop中使用的笔刷，及当月创作的PSD源文件。
-        \item Angel：每月14美元，除了Templar的内容外，在画师自营的商店中获得40\%的优惠，或动态版的壁纸，以及绘画过程的原始录像（1080P，无倍速），以及当月面向绘画初学者的基础教程，同时购买以往教程时享受40\%的优惠。
-        \item Asura：每月20美元，除了Angel的内容外，每月可免费获得任意以往作品、教程或动态壁纸的源文件。
-    \end{itemize}\footnote{WLOP的Patreon是按Term收费，每月两2个Term，表中定价为月度费用。}
+        \item Knight: \$2 per month, with JPG format comics (3000 pixel wide), and wallpaper created that month (4K resolution)
+        \item Black Knight: \$4 per month, with full-size comic, and the wallpaper created that month (8K resolution)
+        \item Templar: \$8 per month, with everything in Black Knight, and brushes used by a WOLP in Photoshop, and a PSD source files created that month.
+        \item Angel: \$14 per month, with everything in the Templar, and 40\% off in illustrator's store, or the dynamic version of wallpaper, as well as the original video of the painting process (1080P, without the double speed), as well as the basic tutorial for the beginning of the month for drawing beginners, with 40\% off when buying the previous tutorials.
+        \item Asura: \$20 per month, with everything in Angel, and free access to one of the source files of any previous works, tutorials or dynamic wallpapers per month.
+    \end{itemize}\footnote{
+        WLOP's Patreon is charged in term, two 2 term per month,
+        and the pricing in the table is a monthly fee.
+    }
 
-    截至2021年7月30日，画师WLOP在Patreon上共有5854名赞助者，并保持平均每月两到三次的更新频率。
-    然而并非所有创作者都能复刻WLOP在Patreon的成功。 我们再来看Sonic Ether的Patreon。
-    Sonic Ether是Minecraft著名光影包SEUS的作者，目前他正在制作Minecraft Java版的光追光影。
-    他的Patreon有四种计划\cite{seus_patreon}：
+    As of July 30, 2021, WLOP had a total of 5854 sponsors on Patreon, and have
+    maintained an average update frequency of two to three times a month.
+    However, WLOP is not the only model at Patreon that can be successful.
+    Let's take another look at Sonic Ether's Patreon. Sonic Ether is the author
+    of Minecraft's famous shader package "SEUS", and currently he is making the
+    ray-tracking version for Mincraft Java edition. There are four plans on his
+    Patreon\cite{seus_patreon}:
+
     \begin{itemize}
-        \item Stone：每月1美元，可以加入Discord服务器并拥有Stone权限，并获取最新开发进度与截图。
-        \item Iron：每月5美元，除了Stone的内容之外，在服务器中拥有Iron权限。
-        \item Gold：每月10美元，除了Iron的内容之外，在服务器中拥有Gold权限。
-        \item Diamond：每月25美元，除了Gold的内容之外，在服务器中拥有Diamond权限。
+        \item Stone: \$1 per month, you can join the Discord server and have Stone rights, and get the latest development progress and screenshots.
+        \item Iron: \$5 per month, with everything in Stone, and Iron rights in the server.
+        \item Gold: \$10 per month, with everything Iron, and Gold rights in the server.
+        \item Diamond: \$25 per month, with everything Gold, and Diamond rights in the server.
     \end{itemize}
 
-    截至2021年7月30日，Sonic Ether在Patreon上共有6923名赞助者，并保持平均每两到三个月一次更新的频率。
-    值得一提的是，在2021年7月22日，Sonic Ether将以往需要每月订阅Gold计划才能获得的开发版本光影包修改为
-    所有人都可以获得，不再需要每月赞助。目前Sonic Ether每月可获得56939美元的收入。
+    As of July 30, 2021, Sonic Ether has a total of 6923 sponsors on Patreon,
+    and maintains update every two to three months. It is worth mentioning that
+    on July 22, 2021, Sonic Ether changed the policy to access his least work.
+    Previously you have to subscript to at least the Gold Plan to the download
+    the shader package, but now is available to everyone and no longer require
+    a monthly sponsorship. Sonic Ether currently generates \$56939 per month in revenue.
 
-    在这两个例子中，都是创作者先发布作品，然后转向Patreon\footnote{
-        Sonic Ether在2017年10月14日开始使用Patreon，而光影包则在2016年开始发布。
-        WLOP在2015年1月15日才开始使用Patreon，但他早在2014年就开始发布作品了。
-    }。这就要求使用Patreon的创作者，首先有卓越的作品，其次有稳定且合理的更新频率，
-    才有可能获得实现赞助支撑创作。而对于刚刚起步，或诸如硬件等其他不便于交付的成果，
-    创作者们更多使用众筹的模式。
+    In both cases, it was the creator who released the work first and then
+    moved to Patreon\footnote{
+        Sonic Ether started using Patreon on October 14, 2017,
+        while his shader packages were released in 2016.
+        WLOP started using Patreon on January 15, 2015,
+        but his works are released as early as 2014.
+    }. This requires content creators who use Patreon
+    must release some respective works first, followed by a stable and
+    reasonable updating frequency, before it is possible to obtain the
+    sponsorship from his audience.
+    For a newcomer, or other outcomes such as hardware, which are not
+    easy to deliver through the internet, those creators are more likely
+    to use the crowdfunding model.
 
-    \subsection{Traditional crowdfunding}\label{subsec:tradition_kickstarter}
+    \subsection{Crowdfunding-based traditional model}\label{subsec:tradition_kickstarter}
 
-    相比于每月付费的Patreon，基于众筹的传统模式，以Kickstarter为例，则更倾向于一次性
-    赞助的方式。在Kickstarter的网站上，可以看到各种各样的众筹类型\cite{kickstarter_homepage}，
-    包括艺术展览、漫画插图、设计、影片、视频工艺、游戏、硬件、音乐、出版等等各种各样的众筹项目。
+    The traditional crowdfunding-based model, in the case of Kickstarter,
+    prefers a one-time sponsorship compared to Patreon's monthly subscription.
+    A wide variety of crowdfunding projects can be found on Kickstarter's
+    website\cite{kickstarter_homepage}, including art exhibitions, comic illustration,
+    design, film, video crafts, games, hardware, music, publishing, and so on.
 
-    根据Kickstarter自己的介绍\cite{kickstarter_about}，该平台致力于将创意转换为现实。
-    众筹项目的发起人将对作品具有完全的控制权，并且发起众筹项目相对容易：不需要几百页的项目申请
-    书，也不会有捐款者要求对项目做出修改，更不会出现投资者在最终时刻要求修改产品的情况。
-    总的来说，Kickstarter更偏向于服务创作者，给他们尽可能多的自由以使他们能够将优秀的创意
-    转换为现实中的产品。这种创作者的独立性能够激发出卓越的产品，可一旦遇到恶意项目，当赞助者
-    发现他们上当了的时候，他们几乎做不了什么。
+    According to Kickstarter's own introduction\cite{kickstarter_about},
+    the platform is dedicated to transforming creative ideas into reality.
+    The initiator (creator) of a crowdfunding project will have full
+    control over the works, and it is relatively easy to launch a
+    crowdfunding project: no project application paper is required, no
+    donors asking for changes to the project, and no investors asking
+    for changes to the product at the final moment. In general, Kickstarter
+    is more in favor to creators, by giving them as much freedom as
+    possible to enable them to turn excellent creative ideas into
+    real-world products. Such independence can inspire superior
+    products, but when it comes to malicious projects, there's little
+    supporters can do when they realize they have been fooled.
 
-    以Milk Nanny为例\cite{kickstarter_milk_nanny}，该项目的宣传为一款智能冲奶机。
-    使用时只需要打开手机APP，输入小孩的出生年月，再扫一下奶粉的条码，便可以自动冲泡，耗时不到一分钟。
-    该项目筹集到了12万美元，但从该项目的留言来看，产品并没有兑现，赞助者们既没有得到冲奶机，
-    也没有得到退款。
+    Taking the example of Milk Nanny\cite{kickstarter_milk_nanny},
+    the project is advertised as a smart milk brewer.
+    To use it, all you need to do is open the mobile app, enter the
+    child's birth year, and scan the barcode of the milk powder,
+    and it will automatically brew it in less than a minute.
+    The project raised 120 thousand dollar, but judging from the
+    project's comments, the product did not materialize and the sponsors
+    never received a milk brewer or a refund.
 
-    同样烂尾的还有Cabin项目\cite{kickstarter_cabin}，该项目宣传为一种最方便的为iPhone充电的
-    方式。该项目收到了18万8千多美元，只有一小部分赞助者在晚于预定时间8个月后收到了产品，但其中不少人
-    反馈无法像宣传的那样使用。而其他赞助者再也没有收到产品，并且该项目在Kickstarter上也没有了更新。
+    Also the same unfinished project: Cabin project\cite{kickstarter_cabin},
+    which is advertised as one of the most convenient ways to charge the iPhone.
+    The project received more than 188 thousand dollar, and only a small number of
+    sponsors received the product after 8 months of the scheduled time, and
+    many of them were not able to use it as advertised. And the rest sponsors
+    never received the product, and the project hasn't been updated on
+    the Kickstarter since then.
 
-    \subsection{Summary for traditional methods}\label{subsec:tradition_summary}
+    \subsection{Summary for traditional models}\label{subsec:tradition_summary}
 
-    基于众筹的传统模式将主动权全部放在了创作者身上，一旦赞助者支付了赞助钱款，该钱款会直接进入
-    创作者的账户，之后项目能否完成，赞助者能否得到产品或退款，则完全听天由命。而基于每月订阅
-    的传统模式，虽然赞助者可以选择下月起停止订阅，但对于已经订阅计划的赞助者来说，创作者就算什么
-    也不做，什么也不更新，他们能做的也只有停止下月的付款。
+    The traditional crowdfunding model puts all the initiative on the creator,
+    once the sponsor pays the sponsored money, the money will go straight
+    into the creator's account, after which sponsors will have no control on
+    the project, no matter it can be completed or be refunded, or never updated again.
+    For monthly subscription, while sponsors can stop subscribing from next month,
+    for sponsors who already subscribe to some plan, the only thing they can do is stop
+    the subscription if the creator don't do anything or delivered a less-quality work.
 
-    然而随着区块链技术以及加密货币逐渐出现在公众视野中，也有人尝试在区块链上实现创作者经济。
+    Traditional models are not the whole story. With the blockchain technology
+    as well as the cryptocurrency gradually accepted by public, others have tried
+    to implement creator economy on the blockchain.
 
     \subsection{瞬matataki}\label{subsec:blockchain_matataki}
 
-    瞬matataki平台意图帮助自由的创作者获得更多收入并建立公开永存的数字作品库。
-    该平台提出Fan票和个人通证的概念。Fan票基于以太坊Rinkeby测试网络构建，每个人
-    都可以再平台上发行属于自己的Fan票，这些Fan票可以被其他人持有和消费
-    （用于解锁发行者的文章）\cite{mitataki_fan_ticket}。
+    The 瞬matataki platform is intended to help free creators
+    gain more revenue and build a publicly perpetual library of
+    digital works. The platform proposes the concept of
+    Fan tickets and personal tokens. Fan tickets are built based
+    on the Ethereum Rinkeby test network, and each person can issue
+    their own Fran tickets. Those Fans tickets can be held and consumed
+    by others (for unlocking the issuer's article)\cite{mitataki_fan_ticket}.
 
-    该平台主打作者自由创作。通过在该平台上发行个人代币，读者可通过
-    法定货币兑换创作者的代币，并在未来通过该代币购买创作者作品的阅读权限。同时
-    该平台将创作者的作品存储于IPFS\cite{ipfs}上，做到了内容的去中心化存储，
-    避免了潜在的内容审查。
+    The platform focuses on the freedom of creation. By issuing
+    individual tokens on their platform, the audiences can exchange legal tender
+    for the creator's tokens and purchase for access to creator's work in the future.
+    The platform also stores creators' work on IPFS\cite{ipfs},
+    which allows decentralized storage and avoids potential content censorship.
 
-    灵活的货币模型给予了瞬matataki平台更多的可能性，但我们认为过于灵活多变的货币
-    模型会给内容创造者带来不必要的负担。并且目前来看除了平台本身之外，尚且没有办法
-    越过平台直接与以太坊Rinkeby测试网络或IPFS节点交互并使用平台的方法。并且该平台
-    的无手续费交易依赖于Rinkeby测试网，迁移到以太坊主网将会导致每笔交易产生高额
-    手续费，进而阻碍用户在平台上使用个人代币进行小额交易。但停留在测试网络需要
-    平台为个人代币的价值提供担保。
+    The flexible currency model gives more possibilities to 瞬matataki platform,
+    but we believe that an overly flexible currency model would place an
+    unnecessary burden on content creators. And as of now, there is no way to
+    interact directly with the Ether Rinkeby test network or IPFS nodes to use
+    the platform outside of their own website, which is a centralized application.
+    Also, since the platform relies on the Rinkeby test network for no-fee
+    transactions, migrating to the main Ethernet network would result in high
+    fees per transaction, which would prevent users from using their personal
+    tokens for small transactions on the platform. But staying on the test network
+    requires the platform to guarantee the value of individual tokens.
 
 
     \section{Our solution}\label{sec:solution}
 
-    上一节中我们列举了两个传统应用和一个基于区块链构建的平台。我们总结了这三种模式的优缺点，
-    并提出了NekoHit Project。该企划由两个关键部分组成：作品完成度协议（WCA）和完成
-    协议代币（CAT）。我们的企划注重实现一个简单便捷好用的赞助平台，并且给予用户（创作者和
-    赞助者）充分保护自己权益的权力与能力。同时我们尽可能保持开放：我们并不限制创作者使用
-    何种平台存放作品，也不限制用户以何种方式调用我们的合约，在未来我们还将尽力实现用户的代币
-    自由，即不限制用户使用何种代币进行质押与赞助。
+    In the previous section, we cited two traditional application and a platform
+    built on blockchain. We summarized the advantages and disadvantages of these
+    three models and propose the NekoHit Project. The project consists of two
+    key components: the work completion agreement (WCA) and the completion agreement
+    tokens (CAT). Our project focuses on the implementation of a sponsorship
+    platform that is simple and easy to use, and gives users (both creators
+    and sponsors) the power and ability to protect their rights and
+    interests. At the same time we want to be as open as possible: we do not
+    restrict what platform the creator uses to store the work, nor restrict
+    how user invoke our contracts, and in the future we will also do our best
+    to implement the free choice of other token, aka no limitation on what token
+    they use to pledge and sponsor.
 
-    \subsection{Work complete agreement}\label{subsec:wca}
+    \subsection{Work Complete Agreement}\label{subsec:wca}
 
-    作品完成度协议（WCA）是NekoHit Project的核心功能。WCA以项目为基本单位，兼具Kickstarter众筹
-    与Patreon赞助的功能，并且在传统模式的基础上赋予赞助者更多主动权，除了可以随时退款\footnote{
-        退款取决于项目的进行进度，在某些情况下无法全额退款
-    }之外，还提供类似保险的机制，在创作者未能如期完成约定时将自动退款至赞助者的钱包，并对创作者做出惩罚。
-    以下将对WCA和具体机制进行详细解释。
+    The Work Completion Agreement (WCA) is the core feature of the
+    NekoHit Project. WCA based on the individual projects, and
+    gives sponsors more control compared to traditional models,
+    in addition to being able to make a refund \footnote{
+        Refunds depend on the progress of the project and
+        in some cases full refunds are not possible.
+    } at any time, it also provides an insurance-like mechanism
+    that automatically refunds to sponsor's wallet when the creator fails
+    to meet the the schedule, and penalizes the creator.
+    The WCA and the specific mechanism are explained below.
 
-    \subsubsection{使用流程总览}
+    \subsubsection{Overview}
 
-    WCA的一次完整使用流程如下：
+    One complete use process of the WCA is as follows:
 
     \begin{enumerate}
-        \item 创作者调用WCA合约声明项目
-        \item 创作者调用CAT合约转账（质押代币）
-        \item 读者或观众调用CAT合约转账（赞助项目）\label{item:purchase_wca}
-        \item 创作者调用WCA合约更新项目进度（更新里程碑）\label{item:update_milestone}
-        \item 创作者或赞助者调用WCA合约进行项目结算（结束项目）\label{item:finish_project}
+        \item The creator calls the WCA Contract to declare a project
+        \item The creator calls the CAT contract to transfer pledged tokens
+        \item Audiences call for CAT contract transfer to sponsor project\label{item:purchase_wca}
+        \item The creator calls the WCA contract to update the project (update milestone)\label{item:update_milestone}
+        \item The creator or sponsor calls the WCA contract to end the project (accounting tokens)\label{item:finish_project}
     \end{enumerate}
 
-    其中步骤\ref{item:update_milestone}可由创作者多次调用，以更新不同的里程碑。
-    赞助者可以从步骤\ref{item:purchase_wca}转账赞助的一刻开始，到步骤\ref{item:finish_project}
-    项目结束前随时退款，但退款数额依照项目进行情况，可退款的金额从全额到部分不等。
+    Step~\ref{item:update_milestone} can be called multiple times
+    by the creator to update different milestones. The sponsor can
+    make a refund at any time, from the moment he starts his sponsorship
+    at step~\ref{item:purchase_wca}, until the end of project before
+    step~\ref{item:finish_project}, but the amount of the refund can
+    vary from full to partial depending on the project's progress.
 
-    \subsubsection{声明项目}
+    \subsubsection{Declare project}
 
-    声明项目是指将给定的项目信息与全网唯一的标识符绑定，并存储到WCA合约的存储区中。
-    声明项目是要求的信息如下：
+    Declaring a project refers to bind the given project information
+    with the unique identifier and register to WCA contract.
+    The project information is the requested as follows:
 
-    \paragraph{创作者的ScriptHash}
+    \paragraph{Creator's ScriptHash}
 
-    ScriptHash由Neo N3钱包地址的生成，每一个地址对应唯一的ScriptHash，可以理解为面向合约的N3钱包地址。
-    合约需要追踪该地址以确认更新等操作只能由合约的创建者调用。
+    ScriptHash is generated by the Neo N3 wallet address,
+    each address corresponding to the unique ScriptHash,
+    which can be understood as a contract-oriented address.
+    WCA contract needs to track the address to confirm that
+    operations such as updates can only be called by the
+    project's creator.
 
-    \paragraph{项目简介}
+    \paragraph{Description of project}
 
-    对项目的简单介绍。需要注意的是存储在Neo N3区块链上的每一字节数据都需要支付Gas，所以请尽量做到言简意赅，
-    或给出链下的项目介绍URL、IPFS CID等链接。
+    A brief introduction to the project. It is important to note
+    that every byte of data stored on the Neo N3 blockchain consume
+    Gas, so please try to be brief and concise, or give a
+    link such as the project presentation URL, IPFS CID, etc.
 
-    \paragraph{质押比率}
+    \paragraph{Stake (pledge) rate}
 
-    决定了质押的总额度，也是违约时赔付的比率。
+    Will determine the total amount of the pledge, and the ratio
+    of the payout when creator miss a milestone.
 
-    \paragraph{最大赞助数额}
+    \paragraph{The maximum amount of sponsorship}
 
-    决定了总赞助金额的上限。所有赞助者对项目的赞助数据不能超过该值。
+    The upper limit of total sponsorship amount. The sponsored tokens
+    from all sponsors on this project cannot exceed that value.
 
-    \paragraph{里程碑列表}
+    \paragraph{List of milestones}
 
-    是项目里程碑的具体定义。每个里程碑有三个字段：标题、简介和预期完成时间。其中预期完成时间使用时间戳存储，
-    最大精度可达到毫秒级别。在众多里程碑中，有一个里程碑是特殊的里程碑，即由用户指定的阈值里程碑。
-    对于所有里程碑，要求前一个里程碑的预期完成时间总早于后一个。
+    The detailed definition of project milestones.
+    Each milestone has three fields: title, introduction and
+    expected completion time. The expected completion time
+    is stored as timestamp, with maximum accuracy of milliseconds.
+    Among the many milestones, there is a special milestone
+    referred as threshold milestone.
 
-    \paragraph{阈值里程碑}
+    For all milestones, the expected completion time of the previous
+    milestone should always earlier than the latter one.
 
-    该里程碑决定了赞助者退款时合约结算的行为。若在此里程碑完成之前申请退款，赞助者可以得到全额退款。
-    若在此里程碑完成后申请退款，则只能退回作者尚未完成的里程碑所对应的比例，并且无法获得作者对于
-    未完成里程碑的惩罚。
+    \paragraph{Threshold milestone}
 
-    \paragraph{更新冷却时间}
+    This is specified by the creator. This milestone determines the
+    behavior when sponsor request a refund.
+    If refund is requested before this milestone is completed, the sponsor can get a
+    full refund. If refund is requested after this milestone is completed,
+    only the percentage of milestones that creator has not completed
+    will be refunded, and the penalty rule is not applicable.
 
-    该值决定了两次里程碑更新之间的最短时间间隔。创作者必须等待这段时间，然后才能更新（完成）下一个
-    里程碑。冷却时间的引入是为了保护赞助者，使他们及时发现恶意项目并及时退款。由于不同项目对最短更新
-    间隔的要求不同，因此冷却时间将由创作者指定，并在赞助者赞助项目时以明显方式展示，由赞助者决定是否
-    相信较短的冷却时间。
+    \paragraph{Update Cool-down interval}
 
-    \paragraph{是否公开列出}
+    This value determines the shortest interval between two milestone updates.
+    The creator must wait for this time before they can update (complete)
+    the next milestone. The introduction of cooling time is to protect the
+    sponsors, so they can notice the malicious projects and have time to make
+    refunds. Since the minimum update interval varies from project to project,
+    the cooling time will be specified by the creator and displayed in a clear
+    way when the sponsor sponsors the project, and it is up to the sponsor to
+    decide whether to believe the creator for shorter cooling time.
 
-    该字段将控制前端页面是否公开列出您的项目。但请注意，所有存储在Neo N3区块链上的数据都是公开透明的，
-    这意味着任何人可以通过直接读取智能合约的存储区解读出所有的项目数据。因此设定此项为“否”不能阻止您的
-    项目被公之于众。
+    \paragraph{Should be public}
 
-    \paragraph{项目的全网唯一标识符}
+    This field indicate whether the contract will list your project publicly.
+    But do be aware that all the data stored on the Neo N3 blockchain is open and
+    transparent, meaning that anyone can read all the project data by directly access
+    the storage of the smart contract. So setting this to "no" cannot prevent your
+    project from being accessed by unknown entity.
 
-    该字段决定赞助者如何找到项目。该标识符也是后续与合约交互，指定某项目进行操作的键。该值要求全网唯一，
-    若发生命名重复，合约将抛出异常，使本次交易无效，创作者的资产不会因为错误参数而遭受损失。
+    \paragraph{Unique identifier}
 
-    \subsubsection{质押代币}
+    This field determines how the sponsor finds the project.
+    The identifier is also the key for subsequent interaction with the contract,
+    to specify a project to operate. The identifier must be unique across the network.
+    If the given identifier is duplicated, the contract will throw an exception
+    to mark this transaction invalid.
 
-    质押代币要求创作者在声明项目后，将指定数额的代币转账到WCA合约的账户中，随后才允许
-    赞助者购买。若尝试赞助未质押的项目，或对未质押的项目进行操作，合约将抛出异常并使当次交易无效。
+    \subsubsection{Stake (pledge) token}
 
-    质押数额的计算公式如下：$\text{质押总额度} = \text{质押比率} \times \text{最大赞助数额}$
+    Staking token is required after creator declare his project,
+    by transferring the specified amount of tokens to the WCA contract,
+    before allowing the sponsor to purchase it. If anyone attempt to sponsor or operate
+    an unpaid project, the contract will throw an exception and make the transaction invalid,
+    so user's assets will be safe.
 
-    假设A声明了一个项目，项目的最大赞助金额为1000代币，质押比率为0.5，则总共需要质押500代币。
+    The calculation formula of the specified amount is as follows:
+    $\text{total stake} = \text{stake rate} \times \text{maximum amount of sponsorship}$
 
-    目前WCA合约只支持CAT代币，但未来将支持更多代币。
+    Assuming A project with the maximum sponsorship amount of 1000 tokens and
+    the stake rate is 0.5, then a total of 500 tokens will be required.
 
-    \subsubsection{赞助项目}
+    Currently, WCA contract only supports the CAT tokens.
 
-    创作者完成质押后，可以在其他平台宣传自己的项目。赞助者可以凭借全网唯一的项目标识符进行赞助。
+    \subsubsection{Sponsor a project}
 
-    赞助方法是将代币转账到WCA合约的账户，转账时需要将项目标识符作为转账的第四个参数（即data）。
-    收到转账后合约将检查项目标识符是否有效，若项目标识符不存在或项目不可购买，合约将抛出异常，
-    使本次交易无效。
+    After the creators complete the stake, he or she can advertise their projects
+    on other platforms. Sponsors can sponsor the project using the identifier.
 
-    项目可购买的条件是：创作者已进行质押，并且，项目的第一个里程碑未完成或未逾期。
+    When do the sponsor,you have to transfer tokens to WCA contract with identifier
+    as the fourth parameter (aka the data param), so WCA contract can record your
+    sponsorship to this specific project. If the identifier does not exist or not
+    available for purchase, the contract will throw an exception to make this
+    transaction invalid. Your assets will be safe.
 
-    \subsubsection{更新项目}
+    A project is available to sponsor only if:
+    the creator has paid the stake and, the first milestone has not been completed nor expired.
 
-    创作者可随时调用WCA合约来更新项目的里程碑。更新里程碑将导致新的赞助者无法赞助项目，
-    但不影响已有赞助者的退款请求。更新项目时只可更新后续的里程碑，而不可更新已经经过的里程碑。
+    \subsubsection{Updating project}
 
-    例：目前项目更新的第1个和第3个里程碑，此时第2个里程碑即便没有逾期，也无法被更新。
+    The creator may invoke the WCA contract at any time to update the milestone of the project.
+    Updating a milestone will prevent new sponsors from sponsoring the project,
+    but it won't affect refund requests for existing sponsors.
+    When updating the project, only subsequent milestones is allowed to update,
+    creator cannot update the milestones that have already passed.
 
-    更新里程碑时作者必须附加一段文本。由于Neo N3区块链上存储的每一字节都消耗GAS，
-    因此我们并不推荐将您的作品直接存储在区块链中。这段文本可以是一个URL，也可以是一个
-    IPFS CID，或一段指引您的赞助者找到您成果的文字。若赞助者未能通过这段文本找到您的
-    成果，他们可能会认为您开始恶意完成里程碑，并考虑退款。里程碑一旦更新，将不可修改，
-    因此请在正式发起交易前再三检查这段文本。
+    Example: Milestone \#1 and \#3 is finished, so milestone \#2 cannot be updated
+    even if it is not expired.
 
-    另请注意：所有存储在Neo N3区块链上的数据都是公开透明的，这意味着您的成果可以被
-    任何人（包括之前退款的赞助者）读取。
+    A piece of text is required when updating the milestone. Since every byte stored
+    on the Neo N3 blockchain consumes GAS, we don't recommend storing your work
+    directly in the blockchain. This text can be a URL, or an IPFS CID, or a piece of
+    description that guides your sponsors to find your work. If the Sponsor fails to
+    find your work through this text, they may assume that you started completing the
+    milestone in bad faith and consider a refund. Milestones can not be modified once
+    they are updated, so please double-check this text before formally approve the transaction.
 
-    \subsubsection{退款}
+    Also: all data stored on the Neo N3 blockchain is open and transparent, which means
+    that your text can be read by anyone (including previously refunded sponsors).
 
-    赞助者可以随时在项目结束前发起退款，退款将有合约自动处理，无需等待管理员或创作者同意。
-    具体退款规则如下：
+    \subsubsection{Refund}
 
-    若项目的阈值里程碑尚未完成，您可以随时进行全额退款，退款后您的购买记录将被删除。
-    作者将不会知晓您的退款，除非查阅区块链的交易记录。
+    Sponsors can initiate a refund at any time before the end of the project
+    and the refund will be automatically processed by the contract without
+    waiting for the consent of the administrator or creator.
+    The specific refund rules are as follows:
 
-    若退款时已经经过了项目的阈值里程碑，您只能得到作者尚未完成的里程碑所对应的比例。
-    以如下项目为例：一共10个里程碑，第一个编号为1，最后一个编号为10，阈值里程碑为第3个。
-    申请退款时第1个、第2个和第4个里程碑已经完成，此时第3个里程碑没有完成，虽然没有逾期，
-    由于第4个里程碑已经完成，因此认定第3个里程碑已经经过，故判定只能部分退款。
+    If the threshold milestone has not been completed, you can make a
+    full refund at any time, and your sponsor record will be deleted
+    after the refund. The creator will not be aware of your refund unless
+    he review the transaction record of the blockchain.
 
-    退款比例为：10个里程为作者完成了3个，因此30\%的赞助数额将直接发送给创作者，
-    余下70\%的代币将通过转账的形式发送给赞助者的账号。在最终结算时，第3个里程碑
-    会被判定为未完成，因而会有10\%的质押代币按比例分给所有赞助者作为违约的补偿，
-    但退款时赞助者不会获得这部分代币。
+    If the threshold milestone for the project has already been passed (
+    in the meaning of expired or finished by creator),
+    you can only get the proportion corresponding to the milestones that
+    the creator has not yet completed. Take the following project as an example:
+    there are total of 10 milestones, the first number is 1, the last number is 10 and
+    the threshold milestone is 3. The milestone 1, 2 and 4 is finished,
+    milestone 3 and rest of them have not been completed. Milestone 3 as the
+    threshold milestone, even it is not been finished nor expire, since milestone 4
+    has been completed, it is considered that milestone 3 has been passed,
+    so only partially refund is applicable.
 
-    \subsubsection{结束项目}
+    The refund ratio is: 3 out of 10 is completed by the creator,
+    so 30\% of the sponsored token will be sent directly to the creator,
+    and the remaining 70\% will be refund to the sponsor's address.
+    At the final accounting, milestone 3 will be considered as unfinished,
+    thus 10\% of the pledged tokens will be distributed in proportion to
+    each sponsor's amount, but this is not applicable when processing the
+    refund. Aka no punishment for creator when doing the refund.
 
-    结束项目将导致WCA合约清算项目的财产，并开始将代币转账给每一个相关的账户。
-    以如下项目为例：某项目最大赞助数额为5000，质押比例为0.2，共计10个里程碑，
-    创作者完成了其中7个，创作者质押了1000代币。
+    \subsubsection{Ending the project}
 
-    用户A赞助了500代币，用户B赞助了1000代币，用户C赞助了300代币。
+    Ending the project will trigger WCA contract to account the property
+    and begin to transfer tokens to each related accounts. Take the
+    following project as an example: the maximum sponsorship amount
+    is 5000 and the stake rate is 0.2, there are 10 milestones
+    in total, and the creator completed 7 of them, the creator staked 1000 tokens.
 
-    结算时，用户A对应的质押金额为$500 \times 0.2 = 100$代币，因此用户A的
-    总结算金额为赞助金额500代币加上质押部分的100代币，总共600代币。创作者
-    违约了3个里程碑，因此其中$\frac{3}{10} \times 600 = 200$（零头向下
-    取整）代币转账给赞助者。类似的，用户B将得到400代币的退款，用户C将得到
-    108代币。
+    User A sponsored 500 tokens, user B sponsored 1000 tokens, and user C sponsored 300 tokens.
 
-    对于打给创作者的部分，按如下方式计算：质押部分加所有用户购买的数量，
-    即$1000 + 500 + 1000 + 300 = 2800$代币，这些代币减去转账给赞助者
-    的金额，余下$2800 - 200 - 400 - 108 = 2092$代币，这些代币将一次性
-    转账给创作者。由于NeoVM无法计算小数，因此诸如123.45在NeoVM中的表示是
-    整数12345，在计算时难免会有无法整除而向下取整的情况，若不考虑这种情况，
-    因被取整而损失的代币经过累计，很可能导致会有少量代币遗留在WCA合约的
-    账户中，形成无法流通的死账。
+    When doing the accounting, the stake amount corresponding to user A
+    is $500 \times 0.2 = 100$ tokens, so the total amount of user A is
+    500 tokens sponsored and 100 tokens staked from creator, a total of 600 tokens.
+    The creator didn't finish 3 milestones, so 30\%, aka 180 tokens transferred to user A.
+    Similarly, user B will receive a refund of 360 tokens, and user C will receive 108 tokens.
+
+    For the part that returned to the creator, it is calculated as follows:
+    the staked part plus the total sponsored amount, i.e.
+    $1000 + 500 + 1000 + 300 = 2800$ tokens, subtract those tokens transferred to the Sponsor,
+    the remaining $2800 - 180 - 360 - 108 = 2152$ tokens, which will be
+    transferred to the creator in one transaction to save Gas.
 
     \subsection{Completion Agreement Token}\label{subsec:cat}
 
-    完成协议代币（Completion Agreement Token，简称CAT）是NekoHit
-    Project发行的治理代币。同时，CAT代币也是目前WCA合约唯一接受的代币。
+    Completion Agreement Token (CAT) is the governance token
+    issued by the NekoHit Project. The CAT token is also the
+    only token accepted by WCA contract for now.
 
-    CAT代币发行量固定为1,000,000,000个CAT，精度为小数点后两位，与现实
-    中的法定货币一致。首次发行分配比例如下：
+    The CAT tokens supplied with fixed amount of 1,000,000,000
+    CAT, with a precision of two decimal places, in line with
+    the real world legal tender. The initial issue allocation
+    ratio is as follows:
 
     \begin{itemize}
-        \item 社区成员：68.64\%
-        \item NekoHit团队成员：20.36\%
-        \item 投资者：9.85\%
-        \item 包括空投在内的其他用途：1.15\%
+        \item Community members: 68.64\%
+        \item NekoHitDev team: 20.36\%
+        \item Investors (if we have any): 9.85\%
+        \item Other usage including airdrops: 1.15\%
     \end{itemize}
 
 
     \section{Epilogue}\label{sec:end}
 
     \begin{quotation}
-        “NekoHit”当初只是一个随便起的名字，翻译过来的话，意思应该是“猫猫冲撞”。
-        正如这个项目的诞生，仅仅只是起源于一个散步时突然萌发想法的不知名小说作者（若梦）
-        与一个刚刚尝试区块链开发的程序员(天空Blond)在Misskey的一次相撞和交流，在经过简单
-        的开发以后就有了这个项目的雏形。
+        "NekoHit" was just a random name translats to "cat punch".
+        Just as the project was born out of a sudden idea
+        from an unknown novel author (Wakayume) while walking.
+        After talking with a programmer who had just tried
+        blockchain development (Sky Blond) at Misskey,
+        The project took a very primitive shape after a simple development.
 
-        之后我们去参加了Neo制作组所举办的黑客松，最初的目的只是混个脸熟打一下知名度，
-        途中我们遇到外国大佬 Yannick Koitzsch与我们一同开发，最后很荣幸地，我们
-        得到了Neo Frontier Launchpad的优秀奖，我们的努力有了回报。
+        Then we went to a hackathon organized by the Neo foundation,
+        and the original purpose was just have a try, and on the way we
+        met Yannick Koitzsch, a great teammate doing the development along
+        with us. At the end it was a great honor that we received the excellent
+        award from the Neo Frontier Launchpad.
 
-        我知道我们和NekoHit企划还很年轻，缺乏经验。但正因为我们去尝试、去努力了，
-        我们才能在这个过程中不断成长、进化。同时也要感谢一直支持和鼓励着我们的所有人，
-        正是因为你们，我们才能坚定地走下去。
+        I know that we and NekoHit Project are still very young and inexperienced.
+        But because we have tried and worked hard, we have been able to grow and
+        evolve during the process. I would also like to thank everyone who has
+        supported and encouraged us, because of you, we are able to keep going.
 
-        Neo Frontier Launchpad优秀奖只是我们所迈出的第一步，
-        我相信未来我们将比我们想象的还要走得更远。
+        The Excellent award from Neo Frontier Launchpad is just the first step
+        we have taken, and I believe we will go further than we ever thought
+        possible.
 
-        请期待我们。
+        Please look forward to us.
 
-        \rightline{—— 若梦}
+        \rightline{—— Aozora Wakayume}
     \end{quotation}
 
     \clearpage
