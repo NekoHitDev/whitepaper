@@ -1,3 +1,14 @@
-Prerelease V0.0.1-RC1.
+Prerelease v0.0.1-RC1.
+v0.0.1-RC1预发布
 
 In this version we have finished the white paper in both zh_CN and en_US.
+在这个预发布版本中我们完成了中英文白皮书的初版。
+
+Since it is the first edition, grammatical errors or ambiguities are inevitable.
+由于是第一版，因此文法错误或表述不清之处在所难免，还请各位谅解。
+
+If you find inappropriate, ambiguity, or improper terminology, you are welcome to create Issues.
+如发现有表述不恰当、含糊，或用词不当之处，欢迎各位提出Issue。
+
+Note: The English version is based on the Chinese version, and is compiled with the results of Google translation, DeepL and IBM Watson translator.
+另：英文版白皮书以中文版为参照，综合谷歌翻译、DeepL和IBM Watson翻译的结果综合编译而成。
