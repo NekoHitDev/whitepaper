@@ -14,6 +14,10 @@ jobs:
         with:
           working_directory: src
           latexmk_use_xelatex: true
+          pre_compile: |
+            cp -r ../fonts/* /usr/share/fonts/
+            fc-cache -f
+            fc-list :lang=zh-cn
           root_file: |
             main zh_cn.tex
             main en_us.tex
