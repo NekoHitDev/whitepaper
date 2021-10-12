@@ -1,0 +1,292 @@
+In the previous section, we concluded the disadvantages of two models on the market.
+We intend to solve those trust issues with the NekoHit Project.
+The project consists of three key components: the work completion agreement
+(WCA), the completion agreement tokens (CAT), and the Nekoin token for community DAO\@.
+Our project focused on implementing a sponsorship platform that is simple and
+easy to use.
+Meanwhile, gives users (both creators and sponsors) the power and ability to
+protect their rights and interests.
+During the process, we want to be as open as possible: we do not restrict
+what platform the creator uses to store the work, nor specify how users invoke
+our contracts, and in the future, we will also do our best to implement the
+free choice of other tokens, aka no limitation on what token they want to use
+when pledging and sponsoring.
+
+\subsection{Work Complete Agreement}\label{subsec:wca}
+
+The Work Completion Agreement (WCA) is the core feature of the NekoHit Project.
+WCA is based on individual projects and gives sponsors more control compared
+to existing models.
+In addition to be able to making a refund \footnote{
+    Refunds depend on the progress of the project and
+    in some cases full refunds are not possible.
+} at any time, it also provides an insurance-like mechanism that automatically
+refunds to the sponsor's wallet after the creator failed to meet the schedule
+and penalizes the creator.
+The WCA is implemented as a smart contract.
+
+\subsubsection{Concepts explanation}
+
+\paragraph{Project}
+
+Refers to activities initiated by creators in the real world, such as the production
+of novels, illustrations, or other works.
+The project is recorded as a series of data in the WCA contract, such as the
+address of the creator, the milestone definitions.
+Each project has a unique textual identifier for the user uniquely specifies a
+certain project when interacting with the contract.
+
+\paragraph{Milestone}
+
+Each project contains at least 1 milestone.
+The milestone reflect the important event in the project.
+For a periodic project, milestones can represent the updates in current period.
+For a one-time project, milestones can be key events in the project.
+NEP-17 assets will be accounted according to milestones' status.
+
+Each milestone has a expected completion time.
+The creator can only mark the milestone as finished before this time, otherwise
+it will be considered as violated.
+When violating a milestone, a portion of supported token will be refunded to supporters,
+and part of the pledged token will be transferred supporters as a compensation.
+
+\paragraph{Threshold milestone}
+
+The creator specifies a milestone as the threshold milestone.
+By its meaning, the participants of this project can make a regret before this
+milestone is reached (marked as finished or violated).
+The creator can cancel this project without losing anything, and every supporter
+can get a full refund.
+After reach this milestone, the creator cannot cancel this project.
+Finish the project anyway will cause him/her/they lose large part of the pledged
+token, and cannot get the supported token from supporter.
+Also, supporters cannot do full a refund anymore, once the project reached the
+threshold milestone, all finished milestones will be paid, only a partial refund
+can be achieved.
+
+\paragraph{Cooldown interval}
+
+The creator must invoke the contract to mark a milestone as finished.
+During this process, the creator must set up a cooldown time to ensure
+at least this amount of time has been passed between two updates.
+The goal of this interval is to protect supporters from malicious creator,
+who wants to quickly finish all milestones and take away the tokens.
+By introducing the cooldown interval, supporters can have enough time to
+exam the update and make a refund if they think they are spammed.
+However, different project requires different interval, this parameter is defined
+by the creator and display it clearly when the sponsor browsing the project.
+It is up to the sponsor to decide whether to believe a given cooldown interval.
+
+\paragraph{The maximum amount of sponsorship}
+
+Unlike existing model, WCA defined a maximum amount of sponsorship to ensure
+every supporter will get a reasonable compensation when creator violate milestones.
+The sponsored tokens from all sponsors on this project cannot exceed that value.
+
+\paragraph{Stake (pledge) rate}
+
+Will determine the pledge's total amount and the payout ratio when the
+creator misses a milestone.
+
+\paragraph{Status and stages}
+
+WCA use status to statically mark a project for a easier way to manage the
+lifecycle of the it.
+For example, when you request a refund, the project status must not be `finished`
+or `pending`.
+Status is only changed when user interact with the project.
+For example, the status will be changed from `pending` to `ongoing` when creator
+pledged the correct amount of token.
+
+Every status has 0 or more stages.
+Stages are dynamically computed.
+For example, `ongoing` status has stages like: `OPEN` (where the threshold
+milestone is not reached), `ACTIVE` (where the threshold milestone is reached)
+and `ReadyToFinish` (where the last milestone is reached, but tokens are still
+held by the contract).
+Different operations will require different status and stage, some operations will
+have different action on different status and stage.
+
+\subsubsection{Overview}
+
+One complete use process of the WCA is as follows:
+
+\begin{enumerate}
+    \item The creator calls the WCA contract to declare a project
+    \item The creator calls the NEP-17 contract to transfer pledged tokens
+    \item Supporters call the same NEP-17 contract to transfer sponsored tokens
+    to the project\label{item:purchase_wca}
+    \item The creator calls the WCA contract to update the project (update
+    milestone)\label{item:update_milestone}
+    \item The creator or sponsor calls the WCA contract to end the project
+    (accounting tokens)\label{item:finish_project}
+\end{enumerate}
+
+Step~\ref{item:update_milestone} can be called multiple times by the creator
+to update different milestones.
+The sponsor can make a refund anytime, from the moment he starts his sponsorship
+at step~\ref{item:purchase_wca} until the end of the project before
+step~\ref{item:finish_project}.
+However, the refund amount can vary from complete to partial, depending on
+the project's progress.
+
+\subsubsection{Declare project}
+
+Declaring a project refers to bind the given project information with the
+unique identifier and register it to the WCA contract.
+Currently, you cannot change the info after registered the project.
+In the future we will implement a voting mechanism to let the supporters approve
+or disapprove creator's requests to change milestone settings.
+
+\subsubsection{Stake (pledge) token}
+
+Staking token is required after the creator declares his project by transferring
+the specified amount of tokens to the WCA contract before allowing the sponsor
+to purchase it.
+If anyone attempts to sponsor or operate an unpaid project, the contract will
+throw an exception and make the transaction invalid.
+
+The calculation formula of the specified amount is as follows:
+$\text{total stake} = \text{stake rate} \times \text{maximum amount of sponsorship}$
+
+Assuming A project with the maximum sponsorship amount of 1000 tokens and
+the stake rate is 0.5. A total of 500 tokens will be required.
+
+Currently, the WCA contract only supports the CAT tokens, in the future we will
+support more.
+
+\subsubsection{Sponsor a project}
+
+After creators complete the stake, they can advertise their projects on other
+platforms.
+Sponsors can sponsor the project using the identifier.
+
+When making the sponsor, you have to transfer tokens to the WCA contract with
+the identifier as the fourth parameter (aka the data param), so the contract
+can record your sponsorship to this specific project.
+If the identifier does not exist or is not available for purchase, the contract
+will throw an exception to make this transaction invalid, and your assets will be safe.
+
+A project is available to sponsor only if: the creator has paid the stake
+and the last milestone has not been completed nor violated.
+
+\subsubsection{Updating project}
+
+The creator may invoke the WCA contract at any time to update the milestone
+of the project.
+Only subsequent milestones are allowed to update, and the creator cannot
+update the already passed milestones.
+
+For example, Milestone \#1 and \#3 are finished, so milestone \#2 cannot be
+updated even if it is not expired.
+
+A piece of text is required when updating the milestone.
+Since the storage fee is expensive on the blockchain, we don't recommend keeping
+your work directly on the blockchain.
+This text can be a URL, or an IPFS CID, or a piece of description that guides
+your sponsors to find your work.
+If the sponsor fails to find your work through this text, they may assume that
+the creator started completing the milestone maliciously and consider a refund.
+The creator can not modify milestones once they are updated, so please
+double-check this text before formally approve the transaction.
+
+Also: all data stored on the Neo N3 blockchain is open and transparent, which
+means that your text can be accessed by anyone (including previously refunded
+sponsors).
+We are planning to solve this by using NeoFS's ACL\@.
+
+\subsubsection{Refund}
+
+Sponsors can initiate a refund at any time before the end of the project,
+and the contract will automatically process the refund without waiting for
+the consent of the administrator or creator.
+The specific refund rules are as follows:
+
+Suppose the threshold milestone has not been completed.
+In that case, you can make a full refund at any time, and your sponsor record
+will be deleted after the refund.
+The creator will not be aware of your refund unless he reviews the transaction
+record of the blockchain.
+
+Suppose the threshold milestone has already been passed (in the meaning of
+violated or finished by creator).
+In that case, you can only get the proportion corresponding to the milestones
+that the creator has not yet completed.
+Take the following project as an example: there are ten milestones, the first
+one is \#1, the last one is \#10, and the threshold milestone is \#3.
+Milestone \#1, \#2 and \#4 are finished, milestone \#3 and the rest of them
+have not been completed.
+Since milestone \#4 has been achieved, the threshold milestone \#3 will be
+considered as reached, so only a partial refund is applicable.
+
+The refund ratio is: 3 out of 10 is completed by the creator.
+The WCA Contract will send 30\% of the sponsored token directly to the creator.
+The remaining 70\% will be refunded to the sponsor's address.
+
+At the final accounting, milestone \#3 will be considered as unfinished.
+Thus, 10\% of the pledged tokens will be distributed in proportion to
+each sponsor's amount, but this is not applicable when processing the refund,
+aka no punishment for the creator when doing the refund.
+
+\subsubsection{Ending the project}
+
+Ending the project will trigger the WCA contract to account for the property
+and transfer tokens to each related account.
+Please take the following project as an example: the maximum sponsorship amount
+is 5000, the stake rate is 0.2, there are ten milestones in total, and the
+creator completed seven of them, the creator staked 1000 tokens.
+
+User A sponsored 500 tokens, user B sponsored 1000 tokens, and user C sponsored
+300 tokens.
+
+When doing the accounting, the stake amount corresponding to user A is
+$500 \times 0.2 = 100$ tokens, so the total amount of user A is 500 tokens
+sponsored and 100 tokens staked from the creator, a total of 600 tokens.
+The creator didn't finish three milestones, so 30\%, aka 180 tokens, will be
+transferred to user A\@.
+Similarly, user B will receive a refund of 360 tokens, and user C will receive
+108 tokens.
+
+For the part that returned to the creator, it is calculated as follows: the
+staked part plus the total sponsored amount, i.e.,
+$1000 + 500 + 1000 + 300 = 2800$ tokens, subtract those tokens transferred
+to the sponsor, the remaining $2800 - 180 - 360 - 108 = 2152$ tokens, which
+will be transferred to the creator in one transaction to save GAS\@.
+
+Updating the last milestone will automatically trigger this process.
+
+\subsection{Completion Agreement Token}\label{subsec:cat}
+
+Completion Agreement Token (CAT) is a circulation token issued by NekoHit Project.
+At the same time, CAT token are currently the only token accepted by WCA contract.
+
+The goal of CAT token is to fully eliminate the marketing fluctuations.
+CAT token should be used to sponsor content creators in NekoHit Project, thus
+we decide to fix the exchange rate and open the ability to issue new tokens to
+everyone.
+The exchange rate of CAT token is: 1 CAT = 0.5 USD wrapped coin.
+The total supply amount is not fixed, and the token has a precision of two
+decimal places, in line with the real world legal tender.
+User can send some amount of USD wrapped coin to CatToken contract, the contract
+will calculate the corresponding amount of CAT token and record to sender's address.
+User can also invoke CatToken contract to destroy some amount of CAT token, the
+contract will calculate the amount of USD wrapped coin and transfer to caller's
+address.
+For safety reasons, issue new token and destroy token requires sender/caller's
+signature, no contract caller is allowed.
+NekoHitDev developer team will exchange some amount of CAT token for air drop.
+
+Currently, there are no USD wrapped coin available on N3 main net.
+Thus, the CatToken will be implemented as a low supplied NEP-17 token, and will be
+upgraded in the future.
+
+\subsection{Community DAO token}\label{subsec:nekoin}
+
+The Nekoin (combination of `neko` and `coin`) is the community DAO token for
+the NekoHit Project.
+A voting mechanism will be implemented to decide which features are good to have,
+and which features can be removed, etc.
+Holding the token means you are a member of the community and has the right to
+decide where NekoHit Project will go.
+The token has no value guaranteed.
+You can exchange it with other coins, but this is not part of the design.
