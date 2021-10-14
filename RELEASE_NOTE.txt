@@ -1,20 +1,5 @@
-Prerelease v0.0.1-RC2.
-v0.0.1-RC2预发布
+Prerelease v1-RC1.
+v1-RC1预发布
 
-In this version we have further polished the white paper.
-在这个预发布版本中我们进一步打磨了中英文白皮书的用词与句式。
-
-English version is reviewed by Grammarly and should be more easy to read.
-英文版经过Grammarly的指导与修改，应当更加容易阅读。
-
-Chinese version is proofread based on the English version to maintain consistency.
-中文版以英文版为参照进行校对，以保持内容的一致性。
-
-If you find inappropriate, ambiguity, or improper terminology, you are welcome to create Issues.
-如发现有表述不恰当、含糊，或用词不当之处，欢迎各位提出Issue。
-
-Also, you're welcome to give suggestions about writing technics, or about this project.
-另外，欢迎大家对写作技巧，或本项目相关事宜给出建议。
-
-We are looking forward to your feedback.
-我们很期待得到您的反馈。
+This version matchs the v1-RC1 of contract code.
+该版本对应v1-RC1版本的合约代码。
