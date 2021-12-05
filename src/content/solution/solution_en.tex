@@ -8,9 +8,8 @@ Meanwhile, gives users (both creators and sponsors) the power and ability to
 protect their rights and interests.
 During the process, we want to be as open as possible: we do not restrict
 what platform the creator uses to store the work, nor specify how users invoke
-our contracts, and in the future, we will also do our best to implement the
-free choice of other tokens, aka no limitation on what token they want to use
-when pledging and sponsoring.
+our contracts. Now with the help from Flamingo, we have no limitations on what
+token our users want to use when pledging and sponsoring.
 
 \subsection{Work Complete Agreement}\label{subsec:wca}
 
@@ -152,8 +151,9 @@ $\text{total stake} = \text{stake rate} \times \text{maximum amount of sponsorsh
 Assuming A project with the maximum sponsorship amount of 1000 tokens and
 the stake rate is 0.5. A total of 500 tokens will be required.
 
-Currently, the WCA contract only supports the CAT tokens, in the future we will
-support more.
+Currently, the WCA contract supports all NEP-17 tokens, but to keep users away
+from fraud, we only list tokens approved by our community (like NEO, GAS, CAT,
+fUSDT, FLM, etc.).
 
 \subsubsection{Sponsor a project}
 
@@ -255,10 +255,27 @@ will be transferred to the creator in one transaction to save GAS\@.
 
 Updating the last milestone will automatically trigger this process.
 
+\subsubsection{Canceling the project}
+
+Canceling a project is deleting project logically. After the cancellation,
+the WCA contract will completely forget everything about that project, but
+the transaction where you declare the project will still exist on the blockchain
+physically.
+
+Canceling projects allows the creator to make a regret. Canceling project will
+remove all related data in the contract storage area, after that, the creator
+can create another project with the same identifier. However, this operation
+can be only used before the project across the threshold milestone.
+For projects haven't staked or pledged yet, cancel a project is basically delete
+data. For projects have already staked or pledged, the WCA contract will automatically
+handle the refund. At this time, full refund is applied and no punishment is applied.
+For the rest of projects, the WCA contract will reject the cancel request.
+
 \subsection{Completion Agreement Token}\label{subsec:cat}
 
 Completion Agreement Token (CAT) is a circulation token issued by NekoHit Project.
-At the same time, CAT token are currently the only token accepted by WCA contract.
+Currently, CAT token is a plain NEP-17 token, but in the future, we will implement
+features like auto-pay.
 
 The goal of CAT token is to fully eliminate the marketing fluctuations.
 CAT token should be used to sponsor content creators in NekoHit Project, thus
@@ -272,13 +289,8 @@ will calculate the corresponding amount of CAT token and record to sender's addr
 User can also invoke CatToken contract to destroy some amount of CAT token, the
 contract will calculate the amount of USD wrapped coin and transfer to caller's
 address.
-For safety reasons, issue new token and destroy token requires sender/caller's
-signature, no contract caller is allowed.
-NekoHitDev developer team will exchange some amount of CAT token for air drop.
 
-Currently, there are no USD wrapped coin available on N3 main net.
-Thus, the CatToken will be implemented as a low supplied NEP-17 token, and will be
-upgraded in the future.
+Now the USD wrapper coin is fUSDT, which is Flamingo's USDT wrapper.
 
 \subsection{Community DAO token}\label{subsec:nekoin}
 

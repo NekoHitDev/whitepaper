@@ -1,5 +1,17 @@
-Prerelease v1-RC1.
-v1-RC1预发布
+Release v1.0.0
+v1.0.0发布
 
-This version matchs the v1-RC1 of contract code.
-该版本对应v1-RC1版本的合约代码。
+This version matches the v1.0.0 of contract code.
+In this version, we gave a detailed explanation of what is NekoHit Project,
+what's the problem of the existing crowdfunding system, and how will we solve those
+problems. We also defined the framework of the NekoHit Project, which is the
+WCA contract, CAT token and NEKOIN token.
+This will be the final shape of v1.X.X, all following updates shall not break the
+compatibilities. For breaking changes, they will be included in v2 and become a
+separate entity from v1.
+
+该版本对应v1.0.0版本的合约代码。
+在该版本中，我们详细解释了什么是NekoHit Project、现存的众筹系统存在什么问题，以及我们如何
+解决这些问题。我们还定义了NekoHit Project的框架，即：WCA智能合约，CAT代币和NEKOIN代币。
+这是v1.X.X系列的决定版本，之后的升级都不会破坏对该版本的兼容性。对于破坏性修订，他们将被
+包含在v2版本中，成为一个独立于v1的版本定义。
