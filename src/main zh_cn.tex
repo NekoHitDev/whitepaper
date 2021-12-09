@@ -1,36 +1,25 @@
 %! Author = NekoHitDev
 %! Date = 2021/7/30
 %! Language = Chinese simplified
-%! compiler = XeTex
+%! compiler = XeLaTex
 
 % Preamble
 \documentclass[11pt,UTF8,a4paper]{ctexart}
 \usepackage[T1]{fontenc}
+\setCJKmainfont[FallBack=SimSun-ExtB]{SimSun}
 
 % Packages
 \usepackage{amsmath}
 \usepackage{url}
 \usepackage{graphicx}
 
+% include header file
+\include{header}
 
 % Document
 \begin{document}
-    \begin{titlepage}
-        \centering
-        \vfill
-        \includegraphics[width=0.8\textwidth]{assets/img196}
-        \vfill
-        {\Huge
-        \textsf{NekoHit Project}\\
-        白皮书\\
-        \vskip2cm
-        \vfill
-        \Large
-        ver 0.0.1
-        }
-        \vfill
-        \vfill
-    \end{titlepage}
+    \gentitlepage{白皮书}
+
     \pagenumbering{Roman}
     \tableofcontents
     \vspace*{\fill}
@@ -40,26 +29,41 @@
     \clearpage
 
     \pagenumbering{arabic}
-    \section{愿景}\label{sec:goal}
 
-    一些文字测试\cite{article}。
+
+    \section{愿景}\label{sec:goal}
+    \input{content/goal/goal_cn}
+
 
     \section{企划简介}\label{sec:intro}
+    \input{content/intro/intro_cn}
 
 
     \section{行业现状}\label{sec:now}
+    \input{content/now/now_cn}
 
 
     \section{实施方案}\label{sec:solution}
+    \input{content/solution/solution_cn}
 
-    \subsection{作品完成度协议}\label{subsec:wca}
 
-    \subsection{完成协议代币}\label{subsec:cat}
+    \section{规划}\label{sec:roadmap}
+    \input{content/roadmap/roadmap_cn}
 
 
     \section{结语}\label{sec:end}
+    \input{content/end/end_cn}
+
+    \clearpage
+
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    \begin{center}
+        \textit{谨以此篇纪念封面图的作者，我们的朋友，蛍。}
+    \end{center}
+    \vspace*{\fill}
+    \clearpage
 
     \bibliography{main}
-    \bibliographystyle{plain}
-
+    \bibliographystyle{IEEEtran}
 \end{document}

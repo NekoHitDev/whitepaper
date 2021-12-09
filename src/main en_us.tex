@@ -1,23 +1,73 @@
 %! Author = NekoHitDev
 %! Date = 2021/7/30
-%! Language = Chinese simplified
-%! compiler = XeTex
+%! Language = English (US)
+%! compiler = XeLaTex
 
 % Preamble
-\documentclass[11pt]{article}
+\documentclass[12pt,a4paper]{article}
+\usepackage[T1]{fontenc}
 
 % Packages
 \usepackage{amsmath}
 \usepackage{url}
-% in case there are Chinese bib
-\usepackage[UTF8]{ctex}
+\usepackage{graphicx}
+\usepackage[slantfont, boldfont]{xeCJK}
+
+% set CJK font
+\setCJKmainfont[FallBack=SimSun-ExtB]{SimSun}
+
+% include header file
+\include{header}
 
 % Document
 \begin{document}
+    \gentitlepage{White paper}
+
+    \pagenumbering{Roman}
+    \tableofcontents
+    \vspace*{\fill}
+    \begin{center}
+        \includegraphics[width=0.67\textwidth]{assets/img197}
+    \end{center}
+    \clearpage
+
+    \pagenumbering{arabic}
 
 
+    \section{Vision of the future}\label{sec:goal}
+    \input{content/goal/goal_en}
+
+
+    \section{Introduction}\label{sec:intro}
+    \input{content/intro/intro_en}
+
+
+    \section{Industry Status}\label{sec:now}
+    \input{content/now/now_en}
+
+
+    \section{Our solution}\label{sec:solution}
+    \input{content/solution/solution_en}
+
+
+    \section{Roadmap}\label{sec:roadmap}
+    \input{content/roadmap/roadmap_en}
+
+
+    \section{Epilogue}\label{sec:end}
+    \input{content/end/end_en}
+
+    \clearpage
+
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    \begin{center}
+        \textit{To commemorate the author of the title pic, our friend, Uekawakuyuurei.}
+    \end{center}
+    \vspace*{\fill}
+    \clearpage
 
     \bibliography{main}
-    \bibliographystyle{plain}
+    \bibliographystyle{IEEEtran}
 
 \end{document}
